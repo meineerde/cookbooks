@@ -1,0 +1,36 @@
+{
+  "suggestions": {
+  },
+  "dependencies": {
+  },
+  "long_description": "",
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "license": "Apache 2.0",
+  "maintainer": "Opscode, Inc.",
+  "version": "0.8.2",
+  "attributes": {
+  },
+  "replacing": {
+  },
+  "maintainer_email": "cookbooks@opscode.com",
+  "groupings": {
+  },
+  "platforms": {
+    "debian": [
+
+    ],
+    "ubuntu": [
+
+    ]
+  },
+  "description": "Installs erlang, optionally install GUI tools.",
+  "name": "erlang",
+  "recipes": {
+    "erlang": "Installs erlang"
+  },
+  "recommendations": {
+  }
+}
