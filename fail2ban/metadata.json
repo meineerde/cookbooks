@@ -1,0 +1,36 @@
+{
+  "suggestions": {
+  },
+  "dependencies": {
+  },
+  "long_description": "",
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "license": "Apache 2.0",
+  "maintainer": "Opscode, Inc.",
+  "version": "0.7.1",
+  "attributes": {
+  },
+  "replacing": {
+  },
+  "maintainer_email": "cookbooks@opscode.com",
+  "groupings": {
+  },
+  "platforms": {
+    "debian": [
+
+    ],
+    "ubuntu": [
+
+    ]
+  },
+  "description": "Installs and configures fail2ban",
+  "name": "fail2ban",
+  "recipes": {
+    "fail2ban": "Installs and configures fail2ban"
+  },
+  "recommendations": {
+  }
+}
