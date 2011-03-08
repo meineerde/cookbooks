@@ -1,0 +1,23 @@
+driftfile /var/lib/ntp/ntp.drift
+statsdir /var/log/ntpstats/
+
+statistics loopstats peerstats clockstats
+filegen loopstats file loopstats type day enable
+filegen peerstats file peerstats type day enable
+filegen clockstats file clockstats type day enable
+
+# set the time even if the server was not active during DST changes
+tinker panic 4000
+
+# Upstream servers
+<% @servers.each do |ntpserver| -%>
+server <%= ntpserver %> iburst
+<% end -%>
+
+# default restrictions
+restrict -4 default kod notrap nomodify nopeer noquery
+restrict -6 default kod notrap nomodify nopeer noquery
+
+# Allow localhost to interrogate deeply
+restrict 127.0.0.1 nomodify
+restrict ::1 nomodify
