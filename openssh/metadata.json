@@ -1,0 +1,135 @@
+{
+  "suggestions": {
+  },
+  "dependencies": {
+  },
+  "long_description": "",
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "license": "Apache 2.0",
+  "maintainer": "Holger Just",
+  "version": "0.8.1",
+  "attributes": {
+    "ssh/listen_port": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "22",
+      "type": "string",
+      "recipes": [
+        "ssh::server"
+      ],
+      "description": "Port the server is listening to",
+      "display_name": "Listen Port"
+    },
+    "ssh/authorized_keys_file": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "%h/.ssh/authorized_keys",
+      "type": "string",
+      "recipes": [
+        "ssh::server"
+      ],
+      "description": "Location of the authorized keys file",
+      "display_name": "Authorized keys file"
+    },
+    "ssh/password_authentication": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "false",
+      "type": "string",
+      "recipes": [
+        "ssh::server"
+      ],
+      "description": "if true, permit password authentication",
+      "display_name": "Permit password authentication"
+    },
+    "ssh/permit_root_login": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "false",
+      "type": "string",
+      "recipes": [
+        "ssh::server"
+      ],
+      "description": "if true, permit root login",
+      "display_name": "Permit root login"
+    },
+    "ssh/listen_interfaces": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": [
+
+      ],
+      "type": "array",
+      "recipes": [
+        "ssh::server"
+      ],
+      "description": "Listen on these addresses",
+      "display_name": "Listen Addresses"
+    },
+    "ssh": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "hash",
+      "recipes": [
+
+      ],
+      "description": "Hash of OpenSSH attributes",
+      "display_name": "OpenSSH"
+    }
+  },
+  "replacing": {
+  },
+  "maintainer_email": "hjust@meine-er.de",
+  "groupings": {
+  },
+  "platforms": {
+    "debian": [
+
+    ],
+    "fedora": [
+
+    ],
+    "centos": [
+
+    ],
+    "arch": [
+
+    ],
+    "ubuntu": [
+
+    ],
+    "redhat": [
+
+    ]
+  },
+  "description": "Installs an OpenSSH client or server",
+  "name": "openssh",
+  "recipes": {
+    "openssh::server": "Installs an OpenSSH server",
+    "openssh::client": "Installs the OpenSSH client software",
+    "openssh": "Installs an OpenSSH server"
+  },
+  "recommendations": {
+  }
+}
