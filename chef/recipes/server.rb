@@ -27,14 +27,11 @@ root_group = value_for_platform(
 
 include_recipe "chef::client"
 
-%w{chef-solr chef-solr-indexer chef-server}.each do |svc|
-  service svc do
-    action :nothing
-  end
-end
+services = %w{chef-solr chef-solr-indexer chef-server}
+services << "chef-server-webui" if node[:chef][:webui_enabled]
 
-if node[:chef][:webui_enabled]
-  service "chef-server-webui" do
+services.each do |svc|
+  service svc do
     action :nothing
   end
 end
@@ -44,11 +41,7 @@ template "/etc/chef/server.rb" do
   owner "root"
   group root_group
   mode "644"
-  if node[:chef][:webui_enabled]
-    notifies :restart, resources( :service => [ "chef-solr", "chef-solr-indexer", "chef-server", "chef-server-webui" ]), :delayed
-  else
-    notifies :restart, resources( :service => [ "chef-solr", "chef-solr-indexer", "chef-server" ]), :delayed
-  end
+  notifies :restart, resources(:service => services), :delayed
 end
 
 http_request "compact chef couchDB" do
